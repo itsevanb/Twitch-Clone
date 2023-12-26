@@ -1,6 +1,8 @@
 import { Container } from "./_components/container";
 import { Navbar } from "./_components/navbar";
-import { Sidebar } from "./_components/sidebar";
+import { Sidebar, SidebarSkeleton } from "./_components/sidebar";
+
+import { Suspense } from "react";
 
 const BrowseLaout = ({
     children,
@@ -11,7 +13,9 @@ const BrowseLaout = ({
         <>
         <Navbar />
         <div className="flex h-full pt-20">
-            <Sidebar />
+            <Suspense fallback={<SidebarSkeleton />}>
+              <Sidebar />
+            </Suspense>
             <Container>
                {children}
           </Container>
