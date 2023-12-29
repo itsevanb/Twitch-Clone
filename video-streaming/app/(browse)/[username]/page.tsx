@@ -1,7 +1,15 @@
-const UserPage = () => {
+interface UserPageProps {
+    params: {
+        username: string;
+    };
+};
+
+const UserPage = ({ 
+    params
+}: UserPageProps) => {
     return (
         <div>
-            <h1>User Page</h1>
+            User: {params.username}
         </div>
     );
 };
