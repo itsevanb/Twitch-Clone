@@ -15,11 +15,26 @@ export const getRecommended = async () => {
 
     if (userId) {
         users = await db.user.findMany({
+            // Find all users that are not the current user and not followed by the current user
+            // This is the same as finding all users that are not followed by the current user
             where: {
-                NOT: {
-                    id: userId,
+                AND: [
+                    {
+                        NOT: {
+                            id: userId,
+                    },
                 },
-            },
+                {
+                    NOT: {
+                        followedBy: {
+                            some: {
+                                followerId: userId,
+                            },
+                        },
+                    },
+                },
+            ],
+        },
             orderBy: {
                 createdAt: "desc",
             },
