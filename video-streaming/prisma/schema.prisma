@@ -59,6 +59,7 @@ model Block {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // unique creates a index on the combination of the two fields
   @@unique([blockerId, blockedId])
   @@index([blockerId])
   @@index([blockedId])
