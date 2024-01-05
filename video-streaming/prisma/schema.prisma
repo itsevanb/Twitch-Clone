@@ -9,6 +9,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 // defining db modles
@@ -27,8 +28,39 @@ model User {
   blocking Block[] @relation("Blocking")
   blockedBy Block[] @relation("BlockedBy")
 
+  stream Stream?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+// stream model with fields
+// db.Text is used for large text fields
+model Stream {
+  id String @id @default(uuid())
+  name String @db.Text
+  thumbnailUrl String @db.Text
+
+  ingress String? @unique
+  serverUrl String? @db.Text
+  streamKey String? @db.Text
+
+  // stream options later will be connected with webhooks
+  isLive Boolean @default(false)
+  isChatEnabled Boolean @default(true)
+  isChatDelayed Boolean @default(false)
+  isChatFollowersOnly Boolean @default(false)
+
+  // relation to user who created the stream
+  userId String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([ingress])
+  // stream will be searchable by name
+  @@fulltext([name])
 }
 
 // defining following model with fields and relations to user model
@@ -48,6 +80,7 @@ model Follow {
   @@index([followingId])
 }
 
+// defining blocking model with fields and relations to user model
 model Block {
   id String @id @default(uuid())
   blockerId String
