@@ -40,7 +40,7 @@ model Stream {
   name String @db.Text
   thumbnailUrl String? @db.Text
 
-  ingress String? @unique
+  ingressId String? @unique
   serverUrl String? @db.Text
   streamKey String? @db.Text
 
@@ -58,7 +58,7 @@ model Stream {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-  @@index([ingress])
+  @@index([ingressId])
   // stream will be searchable by name
   @@fulltext([name])
 }
