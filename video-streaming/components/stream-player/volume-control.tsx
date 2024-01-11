@@ -19,6 +19,7 @@ export const VolumeControl = ({
   const isMuted = value === 0;
   const isAboveHalf = value > 50;
 
+  // Icon variable to dynamically render the volume icon based on the volume state
   let Icon = Volume1;
 
   if (isMuted) {
@@ -29,10 +30,12 @@ export const VolumeControl = ({
 
   const label = isMuted ? "Unmute" : "Mute";
 
+  // handleChange function to update the volume state array and call the onChange function
   const handleChange = (value: number[]) => {
     onChange(value[0]);
   };
 
+  // return the volume control component
   return (
     <div className="flex items-center gap-2">
       <Hint label={label} asChild>
