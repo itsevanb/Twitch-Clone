@@ -22,14 +22,17 @@ export const ChatCommunity = ({
   isHidden
 }: ChatCommunityProps) => {
   const [value, setValue] = useState("");
+  // slows down queries to the server while user is searching
   const debouncedValue = useDebounce<string>(value, 500);
 
+  // gets context from livekit wrapper in index.tsx
   const participants = useParticipants();
 
   const onChange = (newValue: string) => {
     setValue(newValue);
   };
 
+  // filters participants based on the search query
   const filteredParticipants = useMemo(() => {
     const deduped = participants.reduce((acc, participant) => {
       const hostAsViewer = `host-${participant.identity}`;
