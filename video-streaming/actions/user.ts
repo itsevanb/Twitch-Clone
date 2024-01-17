@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 
+// edits the user's bio by updating the user record in the database and invalidating the cache for the user's profile page
 export const updateUser = async (values: Partial<User>) => {
   const self = await getSelf();
 

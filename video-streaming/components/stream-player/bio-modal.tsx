@@ -27,6 +27,8 @@ export const BioModal = ({
   const [isPending, startTransition] = useTransition();
   const [value, setValue] = useState(initialValue || "");
 
+  // creates a button action that updates the user's bio
+  // event is type react form element
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
