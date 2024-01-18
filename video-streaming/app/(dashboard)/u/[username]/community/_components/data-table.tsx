@@ -39,6 +39,7 @@ export function DataTable<TData, TValue>({
     []
   )
 
+  // Create the table instance with key and value types
   const table = useReactTable({
     data,
     columns,
@@ -54,6 +55,7 @@ export function DataTable<TData, TValue>({
     },
   })
 
+  // Render the table
   return (
     <div>
       <div className="flex items-center py-4">

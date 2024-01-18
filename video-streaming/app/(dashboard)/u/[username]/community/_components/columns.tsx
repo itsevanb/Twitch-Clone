@@ -8,6 +8,7 @@ import { UserAvatar } from "@/components/user-avatar";
 
 import { UnblockButton } from "./unblock-button";
 
+// Define the type of data that will be displayed in the table
 export type BlockedUser = {
   id: string;
   userId: string;
@@ -16,6 +17,7 @@ export type BlockedUser = {
   createdAt: string;
 }
 
+// Define the columns for the table
 export const columns: ColumnDef<BlockedUser>[] = [
   {
     accessorKey: "username",

@@ -8,12 +8,13 @@ import { columns } from "./_components/columns";
 const CommunityPage = async () => {
   const blockedUsers = await getBlockedUsers();
 
+  // Format data for table 
   const formattedData = blockedUsers.map((block) => ({
     ...block,
     userId: block.blocked.id,
     imageUrl: block.blocked.imageUrl,
     username: block.blocked.username,
-    createdAt: format(new Date(block.blocked.createdAt), "dd/MM/yyyy"),
+    createdAt: format(new Date(block.blocked.createdAt), "MM/dd/yyyy"),
   }));
 
   return ( 

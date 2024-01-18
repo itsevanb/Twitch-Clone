@@ -113,6 +113,7 @@ export const blockUser = async (id: string) => {
     return unblock;
   };
   
+  // Get all users that the current user has blocked
   export const getBlockedUsers = async () => {
     const self = await getSelf();
   
