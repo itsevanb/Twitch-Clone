@@ -22,7 +22,7 @@ export const Results = async ({
       </h2>
       {data.length === 0 && (
         <p className="text-muted-foreground text-sm">
-          No results found. Try searching for something else
+          No results found. Try searching for something else.
         </p>
       )}
       <div className="flex flex-col gap-y-4">

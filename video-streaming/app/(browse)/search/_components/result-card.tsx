@@ -21,6 +21,8 @@ export const ResultCard = ({
   data,
 }: ResultCardProps) => {
   return (
+    // wrapped in a link to make the whole card clickable
+    // extracting data from the props and passing it to the thumbnail component
     <Link href={`/${data.user.username}`}>
       <div className="w-full flex gap-x-4">
         <div className="relative h-[9rem] w-[16rem]">
