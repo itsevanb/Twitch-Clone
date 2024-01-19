@@ -34,3 +34,22 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+.next/app-build-manifest.json
+.next/trace
+.next/cache/webpack/client-development/1.pack.gz
+.next/cache/webpack/client-development/index.pack.gz
+.next/cache/webpack/client-development/index.pack.gz.old
+.next/cache/webpack/edge-server-development/0.pack.gz
+.next/cache/webpack/edge-server-development/index.pack.gz
+.next/cache/webpack/server-development/0.pack.gz
+.next/cache/webpack/server-development/1.pack.gz
+.next/cache/webpack/server-development/index.pack.gz
+.next/cache/webpack/server-development/index.pack.gz.old
+.next/server/server-reference-manifest.js
+.next/server/server-reference-manifest.json
+.next/server/app/_not-found_client-reference-manifest.js
+.next/server/app/not-found_client-reference-manifest.js
+.next/server/app/(browse)/(home)/page_client-reference-manifest.js
+.next/static/chunks/webpack.js
+.next/static/chunks/app/layout.js
+.next/static/chunks/app/(browse)/layout.js
