@@ -53,3 +53,4 @@ yarn-error.log*
 .next/static/chunks/webpack.js
 .next/static/chunks/app/layout.js
 .next/static/chunks/app/(browse)/layout.js
+.env
